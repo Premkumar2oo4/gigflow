@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [notifications, setNotifications] = useState([]);
 
-    const socket = io('http://localhost:5000', {
+    const socket = io('https://gigflow-y1fa.onrender.com', {
         withCredentials: true,
         transports: ['polling', 'websocket'],
         autoConnect: false,
@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/auth/me', {
+                const res = await axios.get('https://gigflow-y1fa.onrender.com/api/auth/me', {
                     withCredentials: true,
                 });
 
@@ -75,11 +75,11 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (email, password) => {
         try {
-            await axios.post('http://localhost:5000/api/auth/login', { email, password }, {
+            await axios.post('https://gigflow-y1fa.onrender.com/api/auth/login', { email, password }, {
                 withCredentials: true,
             });
 
-            const res = await axios.get('http://localhost:5000/api/auth/me', { withCredentials: true });
+            const res = await axios.get('https://gigflow-y1fa.onrender.com/api/auth/me', { withCredentials: true });
             setUser(res.data);
 
             if (res.data?._id) {
@@ -96,7 +96,7 @@ export const AuthProvider = ({ children }) => {
 
     const register = async (name, email, password) => {
         try {
-            await axios.post('http://localhost:5000/api/auth/register', { name, email, password });
+            await axios.post('https://gigflow-y1fa.onrender.com/api/auth/register', { name, email, password });
         } catch (err) {
             console.error('Registration failed:', err);
             throw err;
@@ -118,4 +118,5 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => useContext(AuthContext);
+
 export default AuthContext;
