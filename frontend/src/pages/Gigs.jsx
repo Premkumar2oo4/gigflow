@@ -13,7 +13,7 @@ const Gigs = () => {
             setLoading(true);
             setError('');
             try {
-                const res = await axios.get(`http://localhost:5000/api/gigs?search=${encodeURIComponent(search)}`);
+                const res = await axios.get(`https://gigflow-y1fa.onrender.com/api/gigs?search=${encodeURIComponent(search)}`);
                 setGigs(res.data);
             } catch (err) {
                 console.error('Failed to fetch gigs:', err);
@@ -160,5 +160,6 @@ const Gigs = () => {
         </div>
     );
 };
+
 
 export default Gigs;
