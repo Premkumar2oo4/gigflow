@@ -19,13 +19,13 @@ export default function GigBids() {
 
         try {
             try {
-                const gigRes = await axios.get(`http://localhost:5000/api/gigs/${gigId}`);
+                const gigRes = await axios.get(`https://gigflow-y1fa.onrender.com/api/gigs/${gigId}`);
                 setGigTitle(gigRes.data.title || 'Gig');
             } catch (e) {
                 setGigTitle('Gig');
             }
 
-            const bidsRes = await axios.get(`http://localhost:5000/api/bids/${gigId}`, {
+            const bidsRes = await axios.get(`https://gigflow-y1fa.onrender.com/api/bids/${gigId}`, {
                 withCredentials: true,
             });
             setBids(bidsRes.data);
@@ -50,7 +50,7 @@ export default function GigBids() {
         setHiringId(selectedBidId);
 
         try {
-            await axios.patch(`http://localhost:5000/api/bids/${selectedBidId}/hire`, {}, {
+            await axios.patch(`https://gigflow-y1fa.onrender.com/api/bids/${selectedBidId}/hire`, {}, {
                 withCredentials: true,
             });
             await fetchData();
@@ -172,4 +172,5 @@ export default function GigBids() {
             </div>
         </div>
     );
+
 }
