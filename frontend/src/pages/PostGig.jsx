@@ -28,7 +28,7 @@ const PostGig = () => {
 
         try {
             await axios.post(
-                'http://localhost:5000/api/gigs',
+                'https://gigflow-y1fa.onrender.com/api/gigs',
                 { title, description, budget },
                 { withCredentials: true }
             );
@@ -177,5 +177,6 @@ const PostGig = () => {
         </div>
     );
 };
+
 
 export default PostGig;
