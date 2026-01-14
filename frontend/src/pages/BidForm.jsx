@@ -42,7 +42,7 @@ const BidForm = () => {
 
         try {
             await axios.post(
-                'http://localhost:5000/api/bids',
+                'https://gigflow-y1fa.onrender.com/api/bids',
                 {
                     gigId,
                     message: formData.message.trim(),
@@ -192,5 +192,6 @@ const BidForm = () => {
         </div>
     );
 };
+
 
 export default BidForm;
