@@ -16,7 +16,7 @@ export default function ForgotPassword() {
         setLoading(true);
 
         try {
-            await axios.post('http://localhost:5000/api/auth/forgot-password', { email });
+            await axios.post('https://gigflow-y1fa.onrender.com/api/auth/forgot-password', { email });
             setMessage('If an account exists with this email, you will receive reset instructions.');
         } catch (err) {
             setError('Something went wrong. Please try again.');
@@ -83,4 +83,5 @@ export default function ForgotPassword() {
             </div>
         </div>
     );
+
 }
